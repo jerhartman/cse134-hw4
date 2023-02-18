@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles/style.css">
+        <script src="scripts/script.js"></script>
+        <script src="https://kit.fontawesome.com/13dffc2d07.js" crossorigin="anonymous"></script>
+        <title>Jeremy's portfolio</title>
+    </head>
+    <body>
+        <header>
+            <a href="/">
+                <img id="nav-logo" src="images/thicclogo.png" alt="logo of my handwritten, cursive initials, which are JH">
+            </a>
+            <nav id="main-nav">
+                <ul id="main-nav-ul">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button id="resume-button" onclick="window.open('/documents/resume.pdf', '_blank')">Resume</button>
+        </header>
+        <main>
+            <section id="home">
+                <!-- <div class="background-img"></div> -->
+                <div id="home-text">
+                    <h1>Hello there, <br> I'm Jeremy</h1>
+                    <p>Soon-to-be computer <br id="home-br"> science graduate</p>
+                </div>
+            </section>
+            <!-- in about, include education, skills, certifications -->
+            <section id="about">
+                <h2>Let me introduce myself</h2>
+                <div id="about-box">
+                    <article id="about-text">
+                        <p>
+                            I'm Jeremy, a 4th-year UCSD student studying Mathematics and Computer Science with a minor
+                            in Computer Engineering. My main interests are web development and cyber security. I am 
+                            currently looking for a full-time software development position after graduation.
+                        </p>
+                        <p>
+                            Some notable projects I've been a part of include the front-end development of a recipe manager 
+                            web application and the creation of a custom accumulator instruction set architecture with 
+                            9-bit instructions.
+                        </p>
+                    </article>
+                    <picture id="about-pic">
+                        <source media="(min-width:600px)" srcset="images/me2.webp">
+                        <img src="images/me.webp" alt="Photo of me, Jeremy, smiling wearing a blue collar shirt">
+                    </picture>
+                </div>
+            </section>
+            <!-- in work, put past jobs and projects -->
+            <section id="work">
+                <div id="work-box">
+                    <article>
+                        <h3>Work History</h3>
+                        <dl>
+                            <dt><b>Peer Academic Advisor</b></dt>
+                            <dd>Marshall College, UCSD</dd>
+                            <dd>8/2021 to Present</dd>
+                            <dd>
+                                <p>Duties and Responsibilities:</p>
+                                <ul>
+                                    <li>Scheduling and conducting advising sessions with UCSD students</li>
+                                    <li>Creating promotional materials and hosting webinars for academic resources</li>
+                                    <li>Conducting interviews with applicants for the Peer Academic Advisor position</li>
+                                    <li>Shadowing and training newly hired student advisors</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </article>
+                    <aside>
+                        <h4>Technical Skills</h4>
+                        <ul id="skills-ol">
+                            <li>Proficient in C/C++, Java, Python</li>
+                            <li>Web client languages: HTML, CSS, JavaScript</li>
+                            <li>GIT version control</li>
+                            <li>Linux-based opperating systems</li>
+                            <li>Software development methods: Agile and Scrum</li>
+                        </ul>
+                    </aside>
+                </div>
+            </section>
+            <!-- include a contact form here -->
+            <section id="contact">
+                <div id="form-box">
+                    <h5>Let's Connect</h5>
+                    <form action="/scripts/submitform.php" method="post">
+                        <fieldset>
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required maxlength="30">
+                        </fieldset>      
+                        <fieldset>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required maxlength="30">
+                        </fieldset>
+                        <fieldset>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" required maxlength="200"></textarea>
+                        </fieldset>
+                        <button type="submit">Submit</button>
+                     </form>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Built by Jeremy Hartman &copy;2023</p>
+            <nav id="social-media-nav">
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/jeremy-hartman-678706251/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://github.com/jerhartman" target="_blank"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>
