@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>simple dialog</title>
-        <!-- <script src="/scripts/script.js"></script> -->
         <script src="DOMPurify-main/dist/purify.js"></script>
+        <link rel="stylesheet" href="styles/dialogs.css">
     </head>
     <body>
         <header>
@@ -14,65 +14,38 @@
             </nav>
         </header>
         <main>
-            <h1>Simple Dialogs</h1>
-            <button id="alert-button">Alert</button>
-            <button id="confirm-button">Confirm</button>
-            <button id="prompt-button">Prompt</button>
-            <button id="safer-prompt-button">Safer Prompt</button>
-            <br>
-            <output id="out"></output>
+            <section id="native-buttons">
+                <h1>Simple Dialogs</h1>
+                <button id="alert-button">Alert</button>
+                <button id="confirm-button">Confirm</button>
+                <button id="prompt-button">Prompt</button>
+                <button id="safer-prompt-button">Safer Prompt</button>
+                <output id="out"></output>
+            </section>
+            <section id="custom-buttons">
+                <h2>Custom Buttons</h2>
+                <button id="custom-alert-button">Alert</button>
+                <button id="custom-confirm-button">Confirm</button>
+                <button id="custom-prompt-button">Prompt</button>
+                <output id="custom-out"></output>
+            </section>
+            <dialog id="dialog" class="hidden">
+                <p id="dialog-msg"></p>
+                <div id="dialog-input-box">
+                    <label for="dialog-prompt-input">what is your name?</label>
+                    <input type="text" id="dialog-prompt-input">
+                </div>
+                <hr>
+                <div id="dialog-button-box">
+                    <button id="dialog-cancel-button">Cancel</button>
+                    <button id="dialog-ok-button">Ok</button>
+                </div>
+            </dialog>
         </main>
     </body>
-    <script>
-        // select dom elements
-        let alertButton = document.getElementById('alert-button');
-        let confirmButton = document.getElementById('confirm-button');
-        let promptButton = document.getElementById('prompt-button');
-        let saferPromptButton = document.getElementById('safer-prompt-button');
-        let displayOutput = document.getElementById('out');
-        let bool;
-        let input;
-        // alert button
-        alertButton.addEventListener('click', () => {
-            displayOutput.innerHTML = '';
-            setTimeout(() => {
-                alert('you alerted!');
-            }, 100);
-        });
-        // confirm button
-        confirmButton.addEventListener('click', () => {
-            displayOutput.innerHTML = '';
-            setTimeout(() => {
-                bool = window.confirm('are you sure you want to confirm?');
-                displayOutput.innerHTML = `The value returned by the confirm method is: ${bool}`;
-            }, 100);
-        });
-        // prompt button
-        promptButton.addEventListener('click', () => {
-            displayOutput.innerHTML = '';
-            setTimeout(() => {
-                input = window.prompt('what is your name?', '');
-                if (input == null) {
-                    displayOutput.innerHTML = "prompt result: user did not enter anything :("
-                }
-                else {
-                    displayOutput.innerHTML = `prompt result: ${input}`;
-                }
-            }, 100);
-        });
-        // safer prompt button
-        saferPromptButton.addEventListener('click', () => {
-            displayOutput.innerHTML = '';
-            setTimeout(() => {
-                input = window.prompt('what is your name?', '');
-                if (input == null) {
-                    displayOutput.innerHTML = "prompt result: user did not enter anything :("
-                }
-                else {
-                    let cleaned = DOMPurify.sanitize(input);
-                    displayOutput.innerHTML = `prompt result: ${cleaned}`;
-                }
-            }, 100);
-        });
+    <script src="/scripts/script.js"></script>
+    <script type="module">
+        import { customAlert, customConfirm, customPrompt, initCustomDialog, currentDialog } from '/scripts/customdialog.js';
+        initCustomDialog();
     </script>
 </html>
