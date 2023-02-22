@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>crud</title>
+        <script src="DOMPurify-main/dist/purify.js"></script>
+        <link rel="stylesheet" href="styles/crud.css">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <li><a href="/">Return Home</a></li>
+                <li><a href="/nativedialogs.html">Dialogs</a></li>
+                <li><a href="/crud.html">Crud</a></li>
+            </nav>
+        </header>
+        <main>
+            <!-- button used to add new blog post -->
+            <button id="add-blog-button">Add Blog Post</button>
+            <div id="blog-post-box"></div>
+            <!-- this dialog is used to add and edit blog posts -->
+            <dialog class="hidden" id="add-blog-dialog">
+                <p>please enter the blog post information</p>
+
+                <label for="blog-title-input">Title:</label>
+                <input id="blog-title-input" type="text">
+
+                <label for="blog-date-input">Date:</label>
+                <input id="blog-date-input" type="date">
+
+                <label for="blog-summary-input">Summary:</label>
+                <textarea id="blog-summary-input"></textarea>
+
+                <label for="blog-link-input">Link:</label>
+                <input id="blog-link-input" type="text">
+
+                <div id="add-dialog-buttons">
+                    <button id="add-cancel-button">Cancel</button>
+                    <button id="add-save-button">Save</button>
+                </div>
+            </dialog>
+            <!-- template for blog post -->
+            <template id="blog-template">
+                <article class="blog-post">
+                    <h2 class="blog-title"></h2>
+                    <time datetime="" class="blog-date"></time>
+                    <p class="blog-summary"></p>
+                    <a href="" class="blog-link">see more</a>
+                    <div class="blog-buttons">
+                        <button class="edit-button">edit</button>
+                        <button class="delete-button">delete</button>
+                    </div>
+                </article>
+            </template>
+        </main>
+    </body>
+    <script type="module">
+        import { pageInit } from '/scripts/blog.js';
+        window.addEventListener("load", pageInit());
+    </script>
+</html>
