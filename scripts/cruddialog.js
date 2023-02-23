@@ -174,4 +174,4 @@ function clearDialogInput(addBlogDialog) {
     addBlogDialog.querySelector('#blog-link-input').value = '';
 }
 
-export { dialogEventInit, editEvent, deleteEvent, addNewBlogEvent, blogBeingEdited }
+export { dialogEventInit, editEvent, deleteEvent }
