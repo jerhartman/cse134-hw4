@@ -7,6 +7,8 @@ function dialogEventInit() {
     addNewBlogEvent();
     addDialogCalcel();
     addSaveEvent();
+    deleteCancelEvent();
+    deleteOkEvent();
 }
 
 // adds event listener to "Add Blog Post" button
@@ -79,6 +81,31 @@ function addSaveEvent() {
     });
 }
 
+// dins event to Cancel button in delete dialog 
+function deleteCancelEvent() {
+    let deleteBlogDialog = document.getElementById('delete-blog-dialog');
+    let deleteCancelButton = document.getElementById('delete-cancel-button');
+    deleteCancelButton.addEventListener('click', () => {
+        blogBeingEdited = null;
+        deleteBlogDialog.close();
+        deleteBlogDialog.classList.add('hidden');
+    });
+}
+// bind event to Ok button in delete dialog
+function deleteOkEvent() {
+    let deleteOkButton = document.getElementById('delete-ok-button');
+    deleteOkButton.addEventListener('click', () => {
+        let allBlogPosts = JSON.parse(localStorage.getItem('allBlogPosts'));
+        allBlogPosts = allBlogPosts.filter(blog => blog.id !== blogBeingEdited);
+        localStorage.setItem('allBlogPosts', JSON.stringify(allBlogPosts));
+        document.getElementById(`${blogBeingEdited}`).remove();
+        blogBeingEdited = null;
+        let deleteBlogDialog = document.getElementById('delete-blog-dialog');
+        deleteBlogDialog.close();
+        deleteBlogDialog.classList.add('hidden');
+    });
+}
+
 // once save is clicked, this function updates the HTML on
 // the screen 
 function editBlogHTML(blogObj) {
@@ -101,14 +128,25 @@ function editBlogHTML(blogObj) {
         blogPost.querySelector('.blog-date').innerHTML = blogObj.date;
         blogPost.querySelector('.blog-summary').innerHTML = blogObj.summary;
         blogPost.querySelector('.blog-link').href = blogObj.link;
-        blogPostBox.appendChild(blogPost)
+        blogPost.querySelector('.edit-button').addEventListener('click', () => {
+            editEvent(blogObj.id);
+        });
+        blogPost.querySelector('.delete-button').addEventListener('click', () => {
+            deleteEvent(blogObj.id);
+        });
+        blogPostBox.appendChild(blogPost);
     }
 }
 
 // called when the delete button is clicked for a blog post
 // takes the blog id as input
 function deleteEvent(id) {
-    alert(id)
+    blogBeingEdited = id;
+    let deleteBlogDialog = document.getElementById('delete-blog-dialog');
+
+    // make dialog visible
+    deleteBlogDialog.showModal();
+    deleteBlogDialog.classList.remove('hidden');
 }
 
 // called when user wants to add or edit a blog post
