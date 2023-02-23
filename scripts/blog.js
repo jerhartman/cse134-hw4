@@ -3,22 +3,6 @@
 // import dialog module functions
 import { dialogEventInit, editEvent, deleteEvent } from '/scripts/cruddialog.js';
 
-// // blog array used to store all blogs
-// let allBlogPosts = [];
-// // generate example blog post
-// let blogID = self.crypto.randomUUID();
-// let blogExample = {
-//     id: blogID,
-//     title: 'Real Housewives Reunion Turns Deadly',
-//     date: '2000-11-03',
-//     summary: 'In this season finale of The Real Housewives of Beverly Hills, Kyle Richards takes revenge against Lisa Vanderpump.',
-//     link: 'www.example.com'
-// };
-// // add blog post to allBlogPosts
-// allBlogPosts.push(blogExample);
-// // put blogArr in local storage
-// localStorage.setItem('allBlogPosts', JSON.stringify(allBlogPosts));
-
 // before rendering the page, check local storage to see if the user
 // has already loaded the page before. if not, we add to local storage
 // the 5 top articles using the news api

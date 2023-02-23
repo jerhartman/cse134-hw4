@@ -50,10 +50,10 @@ function addSaveEvent() {
             // update blog with new user inputs
             currBlog = allBlogPosts.find(blog => blog.id == blogBeingEdited);
             let currIndex = allBlogPosts.findIndex(blog => blog.id == blogBeingEdited);
-            currBlog.title = addBlogDialog.querySelector("#blog-title-input").value;
-            currBlog.date = addBlogDialog.querySelector("#blog-date-input").value;
-            currBlog.summary = addBlogDialog.querySelector("#blog-summary-input").value;
-            currBlog.link = addBlogDialog.querySelector("#blog-link-input").value;
+            currBlog.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
+            currBlog.date = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-date-input").value);
+            currBlog.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
+            currBlog.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
             // put object in array and put back in localstorage
             allBlogPosts[currIndex] = currBlog;
             localStorage.setItem('allBlogPosts', JSON.stringify(allBlogPosts));
@@ -62,10 +62,10 @@ function addSaveEvent() {
         else {
             let newPost = {};
             newPost.id = self.crypto.randomUUID();
-            newPost.title = addBlogDialog.querySelector("#blog-title-input").value;
-            newPost.date = addBlogDialog.querySelector("#blog-date-input").value;
-            newPost.summary = addBlogDialog.querySelector("#blog-summary-input").value;
-            newPost.link = addBlogDialog.querySelector("#blog-link-input").value;
+            newPost.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
+            newPost.date = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-date-input").value);
+            newPost.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
+            newPost.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
             allBlogPosts.push(newPost);
             localStorage.setItem('allBlogPosts', JSON.stringify(allBlogPosts));
             currBlog = newPost;
