@@ -2,8 +2,7 @@
 
 // import dialog module functions
 import { dialogEventInit, editEvent, deleteEvent } from '/scripts/cruddialog.js';
-
-var newsAPIkey = '9dec0d80721a49b282b5b971f8a352ef';
+import { newsAPIkey } from '/scripts/keys.js';
 
 // before rendering the page, check local storage to see if the user
 // has already loaded the page before. if not, we add to local storage
