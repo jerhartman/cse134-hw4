@@ -17,7 +17,17 @@
         </header>
         <main>
             <!-- button used to add new blog post -->
+            <br>
+            <section id="header-section">
+                <h1>Welcome to your blog board</h1>
+                <p>
+                    Keep all your blogs and articles in one convenient place. We've added the top 5 
+                    US headlines for today, but feel free to edit them or add your own! 
+                </p>
+            </section>
+            <br>
             <button id="add-blog-button">Add Blog Post</button>
+            <br><br>
             <div id="blog-post-box"></div>
             <!-- this dialog is used to add and edit blog posts -->
             <dialog class="hidden" id="add-blog-dialog">
@@ -54,11 +64,12 @@
                     <h2 class="blog-title"></h2>
                     <time datetime="" class="blog-date"></time>
                     <p class="blog-summary"></p>
-                    <a href="" class="blog-link">see more</a>
+                    <a href="" class="blog-link" target="_blank">see more</a>
                     <div class="blog-buttons">
                         <button class="edit-button">edit</button>
                         <button class="delete-button">delete</button>
                     </div>
+                    <br>
                 </article>
             </template>
         </main>

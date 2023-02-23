@@ -1,0 +1,149 @@
+/* font for h1 tag */
+@font-face {
+    font-family: 'NunitoSans';
+    src: url('/fonts/NunitoSans-Black.ttf') format('truetype');
+    font-weight: bold;
+}
+/* font for h2 tag */
+@font-face {
+    font-family: 'Mada';
+    src: url('/fonts/Mada-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+/* font for paragraphs */
+@font-face {
+    font-family: 'Muli';
+    src: url('/fonts/Muli-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+:root {
+    --standard-font-size: 1rem;
+    --header-font-size: 1.5rem;
+    --header-font-size-phone: 1.5rem;
+    --welcome-font-size-desktop: 3rem;
+    --welcome-font-size-tablet: 2rem;
+    --welcome-font-size-phone: 1.5rem;
+    --highest-priotity: 999;
+    --nav-offset: 6rem;
+    --right-left-margin: 6rem;
+    --right-left-margin-phone: 3rem;
+    --link-trans-time: 0.3s;
+    /* commonly used colors */
+    --pure-white: #fff;
+    --geo-white: #fafafa;
+    --gray-white: #f3f3f3;
+    --geo-gray: #ececec;
+    --one-in-mil-gray: #e1e1e1;
+    --accent-black: #333;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Muli', sans-serif;
+    font-size: 1rem;
+}
+.hidden {
+    display: none;
+}
+header {
+    padding-left: 10%;
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--nav-offset);
+    background-color: var(--accent-black);
+    box-shadow: 0 0.2vmin 0.8vmin 0 rgba(0, 0, 0, 0.4);
+    z-index: var(--highest-priotity);
+}
+header a { /* applies to nav and button links */
+    text-decoration: none;
+}
+nav a {
+    font-weight: normal;
+    color: var(--one-in-mil-gray);
+    transition: all var(--link-trans-time) ease-in-out;
+}
+nav a:hover {
+    color: var(--pure-white);
+}
+li {
+    display: inline-block;
+    padding-right: 2rem;
+}
+/* --------------------------------------------------------- */
+h1 {
+    font-family: 'NunitoSans';
+    font-weight: bold;
+    font-size: var(--welcome-font-size-desktop);
+}
+h2 {
+    font-family: 'Mada';
+    font-weight: bold;
+    font-size: var(--header-font-size);
+    padding-bottom: 0.5rem;
+}
+main {
+    margin: 6rem 10%;
+    padding: 1rem 0;
+}
+article {
+    margin: 1rem 0;
+}
+button {
+    /* margin-right: 1rem; */
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    background-color: var(--gray-white);
+    border: 0.1rem solid var(--one-in-mil-gray);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all var(--link-trans-time) ease-in-out;
+}
+.blog-buttons {
+    display: flex;
+    gap: 1rem;
+}
+/* dialog --------------------------------------------------- */
+dialog {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border: 0.1rem solid var(--accent-black);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+dialog p {
+    padding: 0.5rem;
+    text-align: center;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin: 0.5rem 1rem;
+}
+input, textarea {
+    width: 100%;
+    border: 0.1rem solid var(--one-in-mil-gray);
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    resize: none;
+}
+#add-dialog-buttons, #delete-dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+dialog button {
+    margin: 0;
+    width: 10ch;
+}
