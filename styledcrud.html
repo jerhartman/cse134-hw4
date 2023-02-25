@@ -2,25 +2,27 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>crud</title>
+        <title>Styled CRUD</title>
         <script src="DOMPurify-main/dist/purify.js"></script>
         <link rel="stylesheet" href="styles/styledcrud.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
     </head>
     <body>
         <header>
             <nav>
                 <li><a href="/">Return Home</a></li>
                 <li><a href="/nativedialogs.html">Dialogs</a></li>
-                <li><a href="/crud.html">Crud</a></li>
-                <li><a href="/styledcrud.html">Styled Crud</a></li>
+                <li><a href="/crud.html">CRUD</a></li>
+                <li><a href="/styledcrud.html">Styled CRUD</a></li>
             </nav>
         </header>
         <main>
             <!-- button used to add new blog post -->
-            <section id="header-section">
+            <section id="welcome-section">
                 <h1>Welcome to your blog board</h1>
                 <p>
-                    Keep all your blogs and articles in one convenient place. We've added the top 5 
+                    Keep all your blogs and articles in one convenient place. We've added the top 
                     US headlines for today, but feel free to edit them or add your own! 
                 </p>
             </section>
@@ -63,8 +65,8 @@
                     <p class="blog-summary"></p>
                     <a href="" class="blog-link">see more</a>
                     <div class="blog-buttons">
-                        <button class="edit-button">edit</button>
-                        <button class="delete-button">delete</button>
+                        <button class="edit-button"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="delete-button"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </article>
             </template>

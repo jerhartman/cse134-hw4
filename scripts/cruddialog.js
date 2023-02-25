@@ -51,7 +51,10 @@ function addSaveEvent() {
             currBlog = allBlogPosts.find(blog => blog.id == blogBeingEdited);
             let currIndex = allBlogPosts.findIndex(blog => blog.id == blogBeingEdited);
             currBlog.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
-            currBlog.date = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-date-input").value);
+            // convert date to standard format
+            let articleDate = new Date(addBlogDialog.querySelector("#blog-date-input").value);
+            currBlog.date = articleDate.toLocaleString('en-US');;
+
             currBlog.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
             currBlog.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
             // put object in array and put back in localstorage
@@ -63,7 +66,10 @@ function addSaveEvent() {
             let newPost = {};
             newPost.id = self.crypto.randomUUID();
             newPost.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
-            newPost.date = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-date-input").value);
+            // convert date to standard format
+            let articleDate = new Date(addBlogDialog.querySelector("#blog-date-input").value);
+            newPost.date = articleDate.toLocaleString('en-US');;
+
             newPost.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
             newPost.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
             allBlogPosts.push(newPost);

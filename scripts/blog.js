@@ -17,7 +17,10 @@ function checkLocalStorage() {
         }
         // if not, we add blogs from the news api
         else {
-            let url = 'https://newsapi.org/v2/top-headlines?country=us&general&q=&pageSize=20&page=1e&apiKey=' + newsAPIkey;
+            let url = 'https://newsapi.org/v2/top-headlines?' +
+            'sources=bbc-news,cnn,nbc-news,abc-news&' +
+            'apiKey=' + newsAPIkey;
+
             let req = new Request(url);
             fetch(req)
             .then((response) => {
@@ -25,15 +28,18 @@ function checkLocalStorage() {
             })
             .then((json) => {
                 // take first 5 articles from json data
-                let articles = json.articles.slice(0, 5);
+                let articles = json.articles.slice(0, 10);
+                console.log(articles);
                 // array to add blogs to, then add to localstorage
                 let allBlogPosts = [];
                 // iterate over articles and extract desired data
                 for (var i = 0; i < articles.length; i++) {
+                    let articleDate = new Date(articles[i].publishedAt);
+                    let formatDate = articleDate.toLocaleString('en-US');
                     let blogPost = {
                         id: self.crypto.randomUUID(),
                         title: articles[i].title,
-                        date: articles[i].publishedAt,
+                        date: formatDate,
                         summary: articles[i].description,
                         link: articles[i].url
                 };
