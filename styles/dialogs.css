@@ -81,6 +81,11 @@ button {
     cursor: pointer;
     transition: all var(--link-trans-time) ease-in-out;
 }
+button:hover {
+    transform: translateY(-2px);
+    background-color: var(--accent-black);
+    color: var(--gray-white);
+}
 /* dialog --------------------------------------------------- */
 dialog {
     top: 50%;

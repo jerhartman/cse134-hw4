@@ -87,7 +87,7 @@ function addSaveEvent() {
     });
 }
 
-// dins event to Cancel button in delete dialog 
+// bind event to Cancel button in delete dialog 
 function deleteCancelEvent() {
     let deleteBlogDialog = document.getElementById('delete-blog-dialog');
     let deleteCancelButton = document.getElementById('delete-cancel-button');
@@ -112,16 +112,15 @@ function deleteOkEvent() {
     });
 }
 
-// once save is clicked, this function updates the HTML on
-// the screen 
+// once save is clicked, this function updates the HTML on the screen 
 function editBlogHTML(blogObj) {
     let blogPost;
     // set target article to the existing blog post
     if(blogBeingEdited) {
         blogPost = document.getElementById(`${blogBeingEdited}`);
-        blogPost.querySelector('.blog-title').innerHTML = blogObj.title;
-        blogPost.querySelector('.blog-date').innerHTML = blogObj.date;
-        blogPost.querySelector('.blog-summary').innerHTML = blogObj.summary;
+        blogPost.querySelector('.blog-title').innerText = blogObj.title;
+        blogPost.querySelector('.blog-date').innerText = blogObj.date;
+        blogPost.querySelector('.blog-summary').innerText = blogObj.summary;
         blogPost.querySelector('.blog-link').href = blogObj.link;
     }
     // append new article to page 
@@ -130,9 +129,9 @@ function editBlogHTML(blogObj) {
         let blogPostBox = document.getElementById('blog-post-box');
         blogPost = blogTemplate.content.cloneNode(true);
         blogPost.children[0].setAttribute('id', blogObj.id);
-        blogPost.querySelector('.blog-title').innerHTML = blogObj.title;
-        blogPost.querySelector('.blog-date').innerHTML = blogObj.date;
-        blogPost.querySelector('.blog-summary').innerHTML = blogObj.summary;
+        blogPost.querySelector('.blog-title').innerText = blogObj.title;
+        blogPost.querySelector('.blog-date').innerText = blogObj.date;
+        blogPost.querySelector('.blog-summary').innerText = blogObj.summary;
         blogPost.querySelector('.blog-link').href = blogObj.link;
         blogPost.querySelector('.edit-button').addEventListener('click', () => {
             editEvent(blogObj.id);
@@ -155,8 +154,8 @@ function deleteEvent(id) {
     deleteBlogDialog.classList.remove('hidden');
 }
 
-// called when user wants to add or edit a blog post
-// takes the blog id as input, or 0 if we are adding a new blog
+// called when user wants to edit a blog post
+// find blog in storage and populate inputs with blog data
 function editEvent(id) {
     blogBeingEdited = id;
     let addBlogDialog = document.getElementById('add-blog-dialog');

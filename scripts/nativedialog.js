@@ -9,26 +9,26 @@ let bool;
 let input;
 // alert button
 alertButton.addEventListener('click', () => {
-    displayOutput.innerHTML = '';
+    displayOutput.innerText = '';
     setTimeout(() => {
         alert('you alerted!');
     }, 100);
 });
 // confirm button
 confirmButton.addEventListener('click', () => {
-    displayOutput.innerHTML = '';
+    displayOutput.innerText = '';
     setTimeout(() => {
         bool = window.confirm('are you sure you want to confirm?');
-        displayOutput.innerHTML = `The value returned by the confirm method is: ${bool}`;
+        displayOutput.innerText = `The value returned by the confirm method is: ${bool}`;
     }, 100);
 });
 // prompt button
 promptButton.addEventListener('click', () => {
-    displayOutput.innerHTML = '';
+    displayOutput.innerText = '';
     setTimeout(() => {
         input = window.prompt('what is your name?', '');
         if (input == null) {
-            displayOutput.innerHTML = "prompt result: user did not enter anything :("
+            displayOutput.innerText = "prompt result: user did not enter anything :("
         }
         else {
             displayOutput.innerHTML = `prompt result: ${input}`;
@@ -37,15 +37,15 @@ promptButton.addEventListener('click', () => {
 });
 // safer prompt button
 saferPromptButton.addEventListener('click', () => {
-    displayOutput.innerHTML = '';
+    displayOutput.innerText = '';
     setTimeout(() => {
         input = window.prompt('what is your name?', '');
         if (input == null) {
-            displayOutput.innerHTML = "prompt result: user did not enter anything :("
+            displayOutput.innerText = "prompt result: user did not enter anything :("
         }
         else {
             let cleaned = DOMPurify.sanitize(input);
-            displayOutput.innerHTML = `prompt result: ${cleaned}`;
+            displayOutput.innerText = `prompt result: ${cleaned}`;
         }
     }, 100);
 });

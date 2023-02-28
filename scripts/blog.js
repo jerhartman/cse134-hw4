@@ -88,9 +88,9 @@ function renderBlogs(blogArr) {
         let blogPost = blogTemplate.content.cloneNode(true);
         // update template values with blogObj values
         blogPost.children[0].setAttribute('id', blogObj.id);
-        blogPost.querySelector('.blog-title').innerHTML = blogObj.title;
-        blogPost.querySelector('.blog-date').innerHTML = blogObj.date;
-        blogPost.querySelector('.blog-summary').innerHTML = blogObj.summary;
+        blogPost.querySelector('.blog-title').innerText = blogObj.title;
+        blogPost.querySelector('.blog-date').innerText = blogObj.date;
+        blogPost.querySelector('.blog-summary').innerText = blogObj.summary;
         blogPost.querySelector('.blog-link').href = blogObj.link;
         // add event listeners to blog post buttons
         let editButton = blogPost.querySelector('.edit-button');

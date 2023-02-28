@@ -98,9 +98,6 @@ h1 {
     max-width: 60ch;
     text-align: center;
 }
-#add-blog-button {
-    max-width: 16ch;
-}
 /* blog posts ---------------------------------------------- */
 #blog-post-box {
     display: grid;

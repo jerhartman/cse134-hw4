@@ -12,9 +12,9 @@ function customAlert() {
     let displayCustomOutput = document.getElementById('custom-out');
     // add event listener to alert button
     customAlertButton.addEventListener('click', () => {
-        displayCustomOutput.innerHTML = '';
+        displayCustomOutput.innerText = '';
         currentDialog = 'alert';
-        document.querySelector('#dialog-msg').innerHTML = 'you alerted!';
+        document.querySelector('#dialog-msg').innerText = 'you alerted!';
         // hide unused elements
         document.querySelector('#dialog-input-box').classList.add('hidden');
         document.querySelector('#dialog-cancel-button').classList.add('hidden');
@@ -32,9 +32,9 @@ function customConfirm() {
     let displayCustomOutput = document.getElementById('custom-out');
     // add event listener to alert button
     customConfirmButton.addEventListener('click', () => {
-        displayCustomOutput.innerHTML = '';
+        displayCustomOutput.innerText = '';
         currentDialog = 'confirm';
-        document.querySelector('#dialog-msg').innerHTML = 'are you sure you want to confirm?';
+        document.querySelector('#dialog-msg').innerText = 'are you sure you want to confirm?';
         // hide unused elements
         document.querySelector('#dialog-input-box').classList.add('hidden');
         setTimeout(() => {
@@ -51,7 +51,7 @@ function customPrompt() {
     let displayCustomOutput = document.getElementById('custom-out');
     // add event listener to alert button
     customPromptButton.addEventListener('click', () => {
-        displayCustomOutput.innerHTML = '';
+        displayCustomOutput.innerText = '';
         currentDialog = 'prompt';
         // hide unused elements
         document.querySelector('#dialog-msg').classList.add('hidden');
@@ -74,11 +74,11 @@ function initButtons() {
             case 'alert':
                 break;
             case 'confirm':
-                customOutput.innerHTML = `The value returned by the confirm method is: true`
+                customOutput.innerText = `The value returned by the confirm method is: true`
                 break;
             case 'prompt':
                 let cleaned = DOMPurify.sanitize(dialogInput.value);
-                customOutput.innerHTML = `prompt result: ${cleaned}`;
+                customOutput.innerText = `prompt result: ${cleaned}`;
                 dialogInput.value = '';
                 break;
             default:
@@ -97,10 +97,10 @@ function initButtons() {
                 console.log('cancel was clicked, but currentDialog set to alert');
                 break;
             case 'confirm':
-                customOutput.innerHTML = 'The value returned by the confirm method is: false';
+                customOutput.innerText = 'The value returned by the confirm method is: false';
                 break;
             case 'prompt':
-                customOutput.innerHTML = 'Prompt result: user did not enter anything :(';
+                customOutput.innerText = 'Prompt result: user did not enter anything :(';
                 dialogInput.value = '';
                 break;
             default:
