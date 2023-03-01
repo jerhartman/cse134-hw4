@@ -12,3 +12,6 @@ The second component is druddialog.js, which has all the button event listener f
 
 Part 4:
 I added a basic style that matches my main website. The most important styles are the grid layout of the blog posts and the buttons with icons and hover transitions/translations.
+
+Part 5:
+For edits to my site, I added some javascript to make the page interact with the user as they scroll. The sections of my site will fade in when the user scrolls down the page. Also, I added a typewriter effect to my h1 element that is triggered when the page is loaded. 

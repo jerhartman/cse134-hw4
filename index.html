@@ -27,12 +27,16 @@
             <section id="home">
                 <!-- <div class="background-img"></div> -->
                 <div id="home-text">
-                    <h1>Hello there, <br> I'm Jeremy</h1>
+                    <!-- <h1>Hello there, <br> I'm Jeremy</h1> -->
+                    <noscript>
+                        <h1>Hi There, I'm Jeremy</h1>
+                    </noscript>
+                    <h1 id="typewriter-h1"></h1>
                     <p>Soon-to-be computer <br id="home-br"> science graduate</p>
                 </div>
             </section>
             <!-- in about, include education, skills, certifications -->
-            <section id="about">
+            <section id="about" class="hidden-section">
                 <h2>Let me introduce myself</h2>
                 <div id="about-box">
                     <article id="about-text">
@@ -54,7 +58,7 @@
                 </div>
             </section>
             <!-- in work, put past jobs and projects -->
-            <section id="work">
+            <section id="work" class="hidden-section">
                 <div id="work-box">
                     <article>
                         <h3>Work History</h3>
@@ -86,7 +90,7 @@
                 </div>
             </section>
             <!-- include a contact form here -->
-            <section id="contact">
+            <section id="contact" class="hidden-section">
                 <div id="form-box">
                     <h5>Let's Connect</h5>
                     <form action="/scripts/submitform.php" method="post">
@@ -117,4 +121,8 @@
             </nav>
         </footer>
     </body>
+    <script type="module">
+        import { pageInit } from '/scripts/script.js';
+        document.addEventListener("DOMContentLoaded", pageInit());
+    </script>
 </html>

@@ -43,8 +43,9 @@ https://www.toptal.com/designers/subtlepatterns/inspiration-geometry/
     font-weight: normal;
     font-style: italic;
 }
-/* fade in animation, translates text while opacity increases */
-@keyframes fade-in {
+/* fade in animation, translates text while opacity increases
+    used to fade-in sections as they are scrolled to */
+/* @keyframes fade-in {
     from {
       opacity: 0;
       transform: translate(-2rem, -1rem);
@@ -53,6 +54,25 @@ https://www.toptal.com/designers/subtlepatterns/inspiration-geometry/
       opacity: 1;
       transform: translate(0, 0);
     }
+} */
+@keyframes fade-in2 {
+    from {
+      opacity: 0;
+      transform: translate(0rem, 1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+}
+.hidden-section {
+    opacity: 0;
+}
+/* add class to fading in sections */
+.visible { 
+    animation-name: fade-in2;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 /* custom global variables */
 :root {
@@ -224,13 +244,29 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    animation: fade-in 2s ease-out forwards;
+    animation: fade-in2 2s ease-out forwards;
 }
-h1 {
+#typewriter-h1 {
     font-family: 'NunitoSans', sans-serif;
     font-weight: bold;
     margin-bottom: 1rem;
     text-align: center;
+}
+@keyframes cursor {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* used as typewriter cursor for h1 */
+#typewriter-h1::after {
+    content: '';
+    width: 0.1rem;
+    border-right: 0.4rem solid var(--accent-black);
+    margin-left: 0.5rem;
+    animation: cursor 1s infinite;
 }
 #home-text p {
     text-align: center;
