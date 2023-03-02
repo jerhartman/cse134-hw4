@@ -2,7 +2,7 @@
 
 // import dialog module functions
 import { dialogEventInit, editEvent, deleteEvent } from '/scripts/cruddialog.js';
-import { mediaStackAPIkey } from '/scripts/keys.js';
+import { newsDataIOAPIkey } from '/scripts/keys.js';
 
 // before rendering the page, check local storage to see if the user
 // has already loaded the page before. if not, we add to local storage
@@ -17,7 +17,7 @@ function checkLocalStorage() {
         }
         // if not, we add blogs from the news api
         else {
-            let url = `http://api.mediastack.com/v1/news?access_key=${mediaStackAPIkey}&countries=us`
+            let url = `https://newsdata.io/api/1/news?apikey=${newsDataIOAPIkey}&country=us`;
 
             let req = new Request(url);
             fetch(req)
@@ -27,13 +27,13 @@ function checkLocalStorage() {
             .then((json) => {
                 console.log(json);
                 // take first 5 articles from json data
-                let articles = json.data.slice(0, 10);
+                let articles = json.results.slice(0, 10);
                 console.log(articles);
                 // array to add blogs to, then add to localstorage
                 let allBlogPosts = [];
                 // iterate over articles and extract desired data
                 for (var i = 0; i < articles.length; i++) {
-                    let articleDate = new Date(articles[i].published_at);
+                    let articleDate = new Date(articles[i].pubDate);
                     let formatDate = articleDate.toISOString().substr(0, 10);
                     let blogPost = {
                     id: self.crypto.randomUUID(),
