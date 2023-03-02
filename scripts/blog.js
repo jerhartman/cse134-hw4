@@ -19,7 +19,7 @@ function checkLocalStorage() {
         else {
             let url = 'https://newsapi.org/v2/top-headlines?' +
             'sources=bbc-news,cnn,nbc-news,abc-news&' +
-            'apiKey=' + newsAPIkey;
+            'apiKey=' + newsAPIkey + '/';
 
             let req = new Request(url);
             fetch(req)

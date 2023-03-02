@@ -1,5 +1,9 @@
 # cse134-hw4
 
+Jeremy Hartman
+A15885709
+https://superb-stardust-dd0b26.netlify.app
+
 Part 1:
 I used a script tag to insert javascript from scripts/script.js. I add event listeners to all buttons and use setTimeout to give the DOM time to clear the output element's innerHtml before the prompts appear to the user. I found that some delay was needed or else the output would still be visible on the page, which is not the case in the demo video.
 
