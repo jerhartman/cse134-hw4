@@ -2,7 +2,7 @@
 
 // import dialog module functions
 import { dialogEventInit, editEvent, deleteEvent } from '/scripts/cruddialog.js';
-import { newsAPIkey } from '/scripts/keys.js';
+import { mediaStackAPIkey } from '/scripts/keys.js';
 
 // before rendering the page, check local storage to see if the user
 // has already loaded the page before. if not, we add to local storage
@@ -17,9 +17,7 @@ function checkLocalStorage() {
         }
         // if not, we add blogs from the news api
         else {
-            let url = 'https://newsapi.org/v2/top-headlines?' +
-            'sources=bbc-news,cnn,nbc-news,abc-news&' +
-            'apiKey=' + newsAPIkey + '/';
+            let url = `http://api.mediastack.com/v1/news?access_key=${mediaStackAPIkey}&countries=us`
 
             let req = new Request(url);
             fetch(req)
@@ -27,21 +25,23 @@ function checkLocalStorage() {
                 return response.json();
             })
             .then((json) => {
+                console.log(json);
                 // take first 5 articles from json data
-                let articles = json.articles.slice(0, 10);
+                let articles = json.data.slice(0, 10);
                 console.log(articles);
                 // array to add blogs to, then add to localstorage
                 let allBlogPosts = [];
                 // iterate over articles and extract desired data
                 for (var i = 0; i < articles.length; i++) {
-                    let articleDate = new Date(articles[i].publishedAt);
-                    let formatDate = articleDate.toLocaleString('en-US');
+                    let articleDate = new Date(articles[i].published_at);
+                    let formatDate = articleDate.toISOString().substr(0, 10);
                     let blogPost = {
-                        id: self.crypto.randomUUID(),
-                        title: articles[i].title,
-                        date: formatDate,
-                        summary: articles[i].description,
-                        link: articles[i].url
+                    id: self.crypto.randomUUID(),
+                    title: articles[i].title,
+                    date: formatDate,
+                    // date: articles[i].published_at,
+                    summary: articles[i].description,
+                    link: articles[i].url
                 };
                     // add blog post object to blogArr
                     allBlogPosts.push(blogPost);

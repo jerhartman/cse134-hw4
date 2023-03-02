@@ -53,7 +53,7 @@ function addSaveEvent() {
             currBlog.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
             // convert date to standard format
             let articleDate = new Date(addBlogDialog.querySelector("#blog-date-input").value);
-            currBlog.date = articleDate.toLocaleString('en-US');;
+            currBlog.date = articleDate.toISOString().substr(0, 10);
 
             currBlog.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
             currBlog.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
@@ -68,7 +68,7 @@ function addSaveEvent() {
             newPost.title = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-title-input").value);
             // convert date to standard format
             let articleDate = new Date(addBlogDialog.querySelector("#blog-date-input").value);
-            newPost.date = articleDate.toLocaleString('en-US');;
+            newPost.date = articleDate.toISOString().substr(0, 10);
 
             newPost.summary = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-summary-input").value);
             newPost.link = DOMPurify.sanitize(addBlogDialog.querySelector("#blog-link-input").value);
@@ -161,6 +161,7 @@ function editEvent(id) {
     let addBlogDialog = document.getElementById('add-blog-dialog');
     let blogArr = JSON.parse(localStorage.getItem('allBlogPosts'));
     let currBlog = blogArr.find(blog => blog.id == id);
+    console.log(currBlog);
     // set input fields for user to edit
     addBlogDialog.querySelector("#blog-title-input").value = currBlog.title;
     addBlogDialog.querySelector("#blog-date-input").value = currBlog.date;
