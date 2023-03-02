@@ -2,5 +2,5 @@ This document will contain all changes made to my site since HW3 as well as expl
 
 Changes:
 1. A new navigation link, called HW4, was added to the index.html navbar. This link can be used to access my HW4 pages.
-2. Added new html, javascript, and markdown files for the assignement.
-
+2. For part 5: Fade in animation added to sections when user scrolls (script.js)
+3. For part 5: Typewriter animation for h1 tag when DOM is loaded (script.js)
